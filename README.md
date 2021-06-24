@@ -1,4 +1,4 @@
-[img]https://i.imgur.com/6JaLQ4z.png[/img]
+![img](https://i.imgur.com/6JaLQ4z.png)
 
 # 0x00. AirBnB clone - The console
 
