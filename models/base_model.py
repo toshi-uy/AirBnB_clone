@@ -4,7 +4,6 @@ Base Model for AirBnB
 """
 import datetime
 import json
-from typing import NewType
 from uuid import uuid4
 
 
