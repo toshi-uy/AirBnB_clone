@@ -2,7 +2,7 @@
 """
 Base Model for AirBnB
 """
-import datetime
+from datetime import datetime
 import json
 from uuid import uuid4
 
