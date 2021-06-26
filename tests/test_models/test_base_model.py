@@ -13,9 +13,9 @@ class Test_pep8(unittest.TestCase):
         """Test that we conform to PEP8."""
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['tests/test_models/test_base_model.py',
-                                       'models/base_model.py'])
+                                        'models/base.py'])
         self.assertEqual(result.total_errors, 0,
-                        "Found code style errors (and warnings).")
+                         "Found code style errors (and warnings).")
 
 
 class TestBaseModel(unittest.TestCase):
