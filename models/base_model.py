@@ -17,8 +17,8 @@ class BaseModel:
             for keys, values in kwargs.items():
                 if keys != "__class__":
                     if keys == "created_at" or keys == "updated_at":
-                        value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
-                    setattr(self, keys,value)
+                        values = datetime.strptime(values, "%Y-%m-%dT%H:%M:%S.%f")
+                    setattr(self, keys, values)
         else:
             self.id = str(uuid4())
             self.created_at = datetime.today()
