@@ -10,12 +10,19 @@ from uuid import uuid4
 class BaseModel:
     """Class that defines all common attr/methods for other classes"""
 
-    def __init__(self, id=None):
+    def __init__(self, *args, **kwargs):
         """Initialization of Class"""
 
-        self.id = str(uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
+        if kwargs:
+            for keys, values in kwargs.items():
+                if keys != "__class__":
+                    if keys == "created_at" or keys == "updated_at":
+                        value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                    setattr(self, keys,value)
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.today()
+            self.updated_at = datetime.today()
 
     def __str__(self):
         """ String Representation """
