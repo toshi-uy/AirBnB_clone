@@ -5,6 +5,7 @@ Base Model for AirBnB
 from datetime import datetime
 import json
 from uuid import uuid4
+import models
 
 
 class BaseModel:
@@ -24,6 +25,7 @@ class BaseModel:
             self.id = str(uuid4())
             self.created_at = datetime.today()
             self.updated_at = datetime.today()
+            models.storage.new(self)
 
     def __str__(self):
         """ String Representation """
@@ -33,6 +35,7 @@ class BaseModel:
     def save(self):
         """ updates the public instance attribute with the current datetime """
         self.updated_at = datetime.today()
+        models.storage.save()
 
     def to_dict(self):
         """ returns a dictionary containing all keys/values of the instance"""
