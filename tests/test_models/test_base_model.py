@@ -17,7 +17,7 @@ class Test_pep8(unittest.TestCase):
                          "Found code style errors (and warnings).")
 
 
-class TestBaseModel(unittest.TestCase):
+class TestDocs(unittest.TestCase):
     """Base model document tests"""
 
     @classmethod
@@ -32,3 +32,7 @@ class TestBaseModel(unittest.TestCase):
     def test_class_docstring(self):
         """Class docstring length"""
         self.assertTrue(len(BaseModel.__doc__) >= 1)
+
+
+class TestBaseModel(unittest.TestCase):
+    """ Tests The base model functions """
