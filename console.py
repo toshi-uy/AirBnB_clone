@@ -20,8 +20,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, line):
         """exits when typing quit"""
-        if line == quit:
-            return True
+        return True
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
