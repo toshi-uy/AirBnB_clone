@@ -52,6 +52,12 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save0(self):
         """Test of the save method"""
+        bmodel_2 = BaseModel()
+        bmodel_2.save()
+        bmodel_2id = "BaseModel." + bmodel_2.id
+        with open("file.json", "r") as f:
+            self.assertIn(bmodel_2id, f.read())
+
 
     def test_to_dict(self):
         """Test of the to_dict function"""
