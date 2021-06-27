@@ -22,5 +22,9 @@ class HBNBCommand(cmd.Cmd):
         """exits when typing quit"""
         return True
 
+    def emptyline(line):
+        """passing emptyline do nothing"""
+        pass
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
