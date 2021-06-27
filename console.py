@@ -18,7 +18,7 @@ class HBNBCommand(cmd.Cmd):
         """Exits on EOF"""
         return True
 
-    def do_quit(line):
+    def do_quit(self, line):
         """exits when typing quit"""
         if line == quit:
             return True
