@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Console that contains the entry point of the command interpreter"""
 import cmd
-
+from models.base_model import BaseModel
 
 class HBNBCommand(cmd.Cmd):
     """
@@ -13,6 +13,7 @@ class HBNBCommand(cmd.Cmd):
     """
     prompt = '(hbnb) '
     intro = 'command line interpreter for HBnB, for more info type help'
+    classes = ["BaseModel"]
 
     def do_EOF(self, line):
         """Exits on EOF"""
@@ -22,9 +23,24 @@ class HBNBCommand(cmd.Cmd):
         """exits when typing quit"""
         return True
 
-    def emptyline(line):
+    def do_emptyline(line):
         """passing emptyline do nothing"""
         pass
+
+    def do_create(self, line):
+        """
+        Creates a new instance of BaseModel,
+        saves it (to the JSON file) and prints the id.
+        Ex: $ create BaseModel
+        """
+        if not line:
+            print ("** class name missing **")
+        elif line not in self.classes:
+            print ("** class doesn't exist **")
+        else:
+            new_item = line
+            print(new_item.id)
+            new_item.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
