@@ -3,6 +3,7 @@
 import unittest
 from models.base_model import BaseModel
 import pep8
+from datetime import datetime
 import inspect
 import json
 
@@ -36,3 +37,32 @@ class TestDocs(unittest.TestCase):
 
 class TestBaseModel(unittest.TestCase):
     """ Tests The base model functions """
+    def test_Attributes(self):
+        """Test all the attributes"""
+        bmodel_1 = BaseModel()
+        bmodel_2 = BaseModel()
+        # test if id is string
+        self.assertIsInstance(bmodel_1.id, str)
+        # test not equal id
+        self.assertNotEqual(bmodel_1.id, bmodel_2.id)
+        # test if created_at is datetime
+        self.assertIsInstance(bmodel_1.created_at, datetime)
+        # test if update_at is datetime
+        self.assertIsInstance(bmodel_1.updated_at, datetime)
+
+    def test_save0(self):
+        """Test of the save method"""
+
+    def test_to_dict(self):
+        """Test of the to_dict function"""
+        bmodel_1 = BaseModel()
+        dictionary_1 = bmodel_1.to_dict()
+        # test the dict type
+        self.assertIsInstance(dictionary_1, dict)
+        #test if the dictionary updates
+        bmodel_1.save()
+        dictionary_2 = bmodel_1.to_dict()
+        self.assertNotEqual(dictionary_1["updated_at"], dictionary_2["updated_at"])
+
+if __name__ == "__main__":
+    unittest.main()
