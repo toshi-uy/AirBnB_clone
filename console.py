@@ -45,5 +45,11 @@ class HBNBCommand(cmd.Cmd):
             print(new_item.id)
             new_item.save()
 
+    def do_show(self, line):
+        """Prints the string representation of an instance
+        based on the class name"""
+
+
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
