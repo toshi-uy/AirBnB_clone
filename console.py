@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """Console that contains the entry point of the command interpreter"""
 import cmd
+import json
 from models.base_model import BaseModel
+from models.engine.file_storage import Filestorage
+from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """
@@ -38,7 +41,7 @@ class HBNBCommand(cmd.Cmd):
         elif line not in self.classes:
             print ("** class doesn't exist **")
         else:
-            new_item = line
+            new_item = eval(line)()
             print(new_item.id)
             new_item.save()
 
