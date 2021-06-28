@@ -56,11 +56,44 @@ class HBNBCommand(cmd.Cmd):
         elif len(command) == 1:
             print("** instance id missing **")
         if len(command) == 2:
-            new_item = "{}.{}".format(command[0], command[1])
+            new_item = command[0] + "." + command[1]
         if new_item not in storage.all():
             print("** no instance found **")
         else:
             print(storage.all()[new_item])
+
+    def do_destroy(self, line):
+        """method to delete an instance based on the class name and id"""
+        command = line.split()
+        if not line:
+            print("** class name missing **")
+        elif command[0] not in self.classes:
+            print("** class doesn't exist **")
+        elif len(command) == 1:
+            print("** no instance found **")
+        else:
+            new_item = "{}.{}".format(command[0], command[1])
+            if new_item not in storage.all():
+                print("** no instance found **")
+            else:
+                storage.all().pop(new_item)
+                storage.save()
+
+    def do_all(self, line):
+        """Prints all string representation of all instances"""
+        list_object = []
+        new_item = storage.all()
+        if line and (line not in self.classes):
+            print("** class doesn't exist **")
+        if line in self.classes:
+            for key, value in new_item.items():
+                split_key = key.split(".")
+                new_key = "[" + split_key[0] + "] (" + split_key[1] + ")"
+                list_object.append(new_key + " " + str(value))
+        else:
+            for key, value in new_item.items():
+              list_object.append(str(key) + " " + str(value))
+        print(list_object)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
