@@ -48,8 +48,19 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, line):
         """Prints the string representation of an instance
         based on the class name"""
-
-
+        command = line.split()
+        if not line:
+            print ("** class name missing **")
+        elif command not in self.classes:
+            print ("** class doesn't exist **")
+        elif len(command) == 1:
+            print("** instance id missing **")
+        if len(command) == 2:
+            new_item = "{}.{}".format(command[0], command[1])
+        if new_item not in storage.all():
+            print("** no instance found **")
+        else:
+            print(storage.all()[new_item])
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
