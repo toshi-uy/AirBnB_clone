@@ -6,6 +6,7 @@ from models.state import State
 import pep8
 import inspect
 
+
 class Test_pep8(unittest.TestCase):
     """pep8 test cases class"""
     def test_pep8_conformance(self):
