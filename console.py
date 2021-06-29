@@ -5,6 +5,7 @@ import json
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
+from models.city import City
 from models.engine.file_storage import Filestorage
 from models import storage
 
@@ -19,7 +20,7 @@ class HBNBCommand(cmd.Cmd):
     """
     prompt = '(hbnb) '
     intro = 'command line interpreter for HBnB, for more info type help'
-    classes = ["BaseModel", "User", "State"]
+    classes = ["BaseModel", "User", "State", "City"]
 
     def do_EOF(self, line):
         """Exits on EOF"""
