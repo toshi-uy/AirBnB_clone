@@ -54,7 +54,5 @@ class FileStorage:
                 temp = keys.split('.')
                 new = classes[temp[0]](**values)
                 self.new(new)
-            # for key in objects:
-            #     self.__objects[key] = classes[objects[key]['__class__']](**objects[key])
         except FileNotFoundError:
             pass
