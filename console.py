@@ -21,7 +21,7 @@ class HBNBCommand(cmd.Cmd):
     an empty line + ENTER doesn't execute anything
     """
     prompt = '(hbnb) '
-    intro = 'command line interpreter for HBnB, for more info type help'
+    # intro = 'command line interpreter for HBnB, for more info type help'
     classes = ["BaseModel", "User", "State", "City",
                "Amenity", "Place", "Review"]
 
