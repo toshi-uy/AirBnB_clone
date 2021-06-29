@@ -92,6 +92,7 @@ class HBNBCommand(cmd.Cmd):
         new_item = storage.all()
         if line and line not in self.classes:
             print("** class doesn't exist **")
+            return
         elif line in self.classes:
             for key, value in new_item.items():
                 split_key = key.split(".")
