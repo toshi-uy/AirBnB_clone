@@ -24,7 +24,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
     intro = 'command line interpreter for HBnB, for more info type help'
     classes = ["BaseModel", "User", "State", "City",
-                "Amenity", "Place", "Review"]
+               "Amenity", "Place", "Review"]
 
     def do_EOF(self, line):
         """Exits on EOF"""
