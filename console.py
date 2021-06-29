@@ -99,7 +99,7 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, line):
         """Updates an instance based on the class name and id"""
         command = line.split()
-        new_item = "{}.{}".format(command[0], command[1])
+        new_item = command[0] + "." + command[1]
         if not line:
             print("** class name missing **")
         elif command[0] not in self.classes:
