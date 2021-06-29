@@ -90,9 +90,9 @@ class HBNBCommand(cmd.Cmd):
         """Prints all string representation of all instances"""
         list_object = []
         new_item = storage.all()
-        if line and (line not in self.classes):
+        if line and line not in self.classes:
             print("** class doesn't exist **")
-        if line in self.classes:
+        elif line in self.classes:
             for key, value in new_item.items():
                 split_key = key.split(".")
                 new_key = "[" + split_key[0] + "] (" + split_key[1] + ")"
