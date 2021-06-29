@@ -154,10 +154,10 @@ class HBNBCommand(cmd.Cmd):
         count = 0
         objects = storage.all()
         if line in self.classes:
-            for class in object:
-                if line in class:
+            for key in objects:
+                if line in key:
                     count += 1
-            print count
+            print(count)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
