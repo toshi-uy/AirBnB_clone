@@ -2,10 +2,13 @@
 """Console that contains the entry point of the command interpreter"""
 import cmd
 import json
+from models.amenity import Amenity
 from models.base_model import BaseModel
-from models.user import User
-from models.state import State
 from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
 from models.engine.file_storage import Filestorage
 from models import storage
 
@@ -20,7 +23,8 @@ class HBNBCommand(cmd.Cmd):
     """
     prompt = '(hbnb) '
     intro = 'command line interpreter for HBnB, for more info type help'
-    classes = ["BaseModel", "User", "State", "City"]
+    classes = ["BaseModel", "User", "State", "City",
+                "Amenity", "Place", "Review"]
 
     def do_EOF(self, line):
         """Exits on EOF"""
