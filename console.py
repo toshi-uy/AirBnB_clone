@@ -21,7 +21,6 @@ class HBNBCommand(cmd.Cmd):
     an empty line + ENTER doesn't execute anything
     """
     prompt = '(hbnb) '
-    # intro = 'command line interpreter for HBnB, for more info type help'
     classes = ["BaseModel", "User", "State", "City",
                "Amenity", "Place", "Review"]
 
@@ -33,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
         """exits when typing quit"""
         return True
 
-    def do_emptyline(self, line):
+    def emptyline(self, line):
         """passing emptyline do nothing"""
         pass
 
