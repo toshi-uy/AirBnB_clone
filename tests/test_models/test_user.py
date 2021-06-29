@@ -1,11 +1,8 @@
 #!/usr/bin/python3
 """Test user"""
 import unittest
-import datetime
 from models.base_model import BaseModel
-from models.engine.file_storage import FileStorage
 from models.user import User
-import models
 import inspect
 import pep8
 
@@ -35,3 +32,14 @@ class TestDocs(unittest.TestCase):
     def test_class_docstring(self):
         """Class docstring length"""
         self.assertTrue(len(BaseModel.__doc__) >= 1)
+
+class Test_user(unittest.TestCase):
+    """Tests the user module"""
+
+    def test_class(self):
+        """Test class"""
+        self.assertEqual(User.email, "")
+        self.assertEqual(User.password, "")
+        self.assertEqual(User.first_name, "")
+        self.assertEqual(User.last_name, "")
+        self.assertTrue(issubclass(User, BaseModel))
