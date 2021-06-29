@@ -20,20 +20,20 @@ class HBNBCommand(cmd.Cmd):
     help dispays help
     an empty line + ENTER doesn't execute anything
     """
-    prompt = '(hbnb) '
-    intro = 'command line interpreter for HBnB, for more info type help'
+    prompt = "(hbnb) "
     classes = ["BaseModel", "User", "State", "City",
                "Amenity", "Place", "Review"]
 
     def do_EOF(self, line):
         """Exits on EOF"""
+        print()
         return True
 
     def do_quit(self, line):
         """exits when typing quit"""
         return True
 
-    def do_emptyline(self, line):
+    def emptyline(self):
         """passing emptyline do nothing"""
         pass
 
