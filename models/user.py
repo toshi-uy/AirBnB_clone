@@ -2,7 +2,7 @@
 """User module"""
 from models.base_model import BaseModel
 
-class UserModel(BaseModel):
+class User(BaseModel):
     """Creates the user model"""
 
     email = ""
