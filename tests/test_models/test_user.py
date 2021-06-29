@@ -33,6 +33,7 @@ class TestDocs(unittest.TestCase):
         """Class docstring length"""
         self.assertTrue(len(BaseModel.__doc__) >= 1)
 
+
 class Test_user(unittest.TestCase):
     """Tests the user module"""
 
