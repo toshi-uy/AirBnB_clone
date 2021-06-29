@@ -66,9 +66,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(dictionary_1, dict)
         # test if the dictionary updates
         bmodel_1.save()
-        dictionary_2 = bmodel_1.to_dict()
-        self.assertNotEqual(dictionary_1["updated_at"],
-                    dictionary_2["updated_at"])
+        dict_2 = bmodel_1.to_dict()
+        self.assertNotEqual(dictionary_1["updated_at"], dict_2["updated_at"])
 
 if __name__ == "__main__":
     unittest.main()
