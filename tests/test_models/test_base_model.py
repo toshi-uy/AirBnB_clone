@@ -58,14 +58,13 @@ class TestBaseModel(unittest.TestCase):
         with open("file.json", "r") as f:
             self.assertIn(bmodel_2id, f.read())
 
-
     def test_to_dict(self):
         """Test of the to_dict function"""
         bmodel_1 = BaseModel()
         dictionary_1 = bmodel_1.to_dict()
         # test the dict type
         self.assertIsInstance(dictionary_1, dict)
-        #test if the dictionary updates
+        # test if the dictionary updates
         bmodel_1.save()
         dictionary_2 = bmodel_1.to_dict()
         self.assertNotEqual(dictionary_1["updated_at"], dictionary_2["updated_at"])
