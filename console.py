@@ -32,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
         """exits when typing quit"""
         return True
 
-    def do_emptyline(self, line):
+    def do_emptyline(self):
         """passing emptyline do nothing"""
         pass
 
