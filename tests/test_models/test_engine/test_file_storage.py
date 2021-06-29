@@ -2,7 +2,7 @@
 """test the Amenity method"""
 import unittest
 from models.base_model import BaseModel
-from models.engine.file_storage import Filestorage
+from models.engine.file_storage import FileStorage
 from models.amenity import Amenity
 from models.city import City
 from datetime import datetime
@@ -25,7 +25,7 @@ class Test_pep8(unittest.TestCase):
                          "Found code style errors (and warnings).")
 
 
-class Test_Filestorage(unittest.TestCase):
+class Test_FileStorage(unittest.TestCase):
     def test_docstring(self):
         """module docstring length"""
         self.assertTrue(len(BaseModel.__doc__) >= 1)
