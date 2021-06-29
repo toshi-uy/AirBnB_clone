@@ -7,4 +7,3 @@ class State(BaseModel):
     """Create the state module"""
 
     name = ""
-    
