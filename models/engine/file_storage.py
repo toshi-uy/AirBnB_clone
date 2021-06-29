@@ -3,7 +3,6 @@
 convert the dictionary representation to a JSON string
 """
 import json
-from models import city
 from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.city import City
