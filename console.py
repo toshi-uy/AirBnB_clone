@@ -99,7 +99,6 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, line):
         """Updates an instance based on the class name and id"""
         command = line.split()
-        get_cmd =  "{}.{}".format(command[0], command[1])
         if not line:
             print("** class name missing **")
         elif command[0] not in self.classes:
@@ -113,8 +112,8 @@ class HBNBCommand(cmd.Cmd):
         elif len(command) == 3:
             print("** value missing **")
         else:
-            new_obj = storage.all().get(get_cmd)
-            setattr(new_obj, command[2], command[3][1,-1])
+            new_obj = storage.all().get(command[0] + "." + command[1])
+            setattr(new_obj, command[2], command[3][1, -1])
             new_obj.save()
 
 if __name__ == '__main__':
