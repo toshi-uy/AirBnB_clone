@@ -58,14 +58,18 @@ class HBNBCommand(cmd.Cmd):
         command = line.split()
         if not line:
             print("** class name missing **")
+            return
         elif command[0] not in self.classes:
             print("** class doesn't exist **")
+            return
         elif len(command) == 1:
             print("** instance id missing **")
+            return
         if len(command) == 2:
             new_item = "{}.{}".format(command[0], command[1])
             if new_item not in storage.all():
                 print("** no instance found **")
+                return
             else:
                 print(storage.all()[new_item])
 
@@ -74,10 +78,13 @@ class HBNBCommand(cmd.Cmd):
         command = line.split()
         if not line:
             print("** class name missing **")
+            return
         elif command[0] not in self.classes:
             print("** class doesn't exist **")
+            return
         elif len(command) == 1:
             print("** no instance found **")
+            return
         else:
             new_item = "{}.{}".format(command[0], command[1])
             if new_item not in storage.all():
