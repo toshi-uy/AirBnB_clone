@@ -3,6 +3,7 @@
 convert the dictionary representation to a JSON string
 """
 import json
+from models import city
 from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.city import City
@@ -43,10 +44,13 @@ class Filestorage:
         deserializes the JSON file to __objects
         Only if the file exists, else do nothing, no exception
         """
+        classes = {'BaseModel': BaseModel, 'User': User, 'City': City,
+                   'State': State, 'Amenity': Amenity, 'Place': Place,
+                   'Review': Review}
         try:
             with open(self.__file_path, 'r') as f:
                 objects = json.load(f)
             for key in objects:
-                self.__objects[key] = BaseModel(**objects[key])
+                self.__objects[key] = classes[objects[key]['__class__']](**objects[key])
         except FileNotFoundError:
             pass
