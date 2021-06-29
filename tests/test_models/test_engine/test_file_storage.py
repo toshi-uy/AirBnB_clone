@@ -19,10 +19,15 @@ class Test_pep8(unittest.TestCase):
 
 
 class Test_FileStorage(unittest.TestCase):
+    """Test the FileStorage"""
     def test_docstring(self):
         """module docstring length"""
         self.assertTrue(len(FileStorage.__doc__) >= 1)
 
+    def test_is_an_instance(self):
+        """function test_is_an_instance"""
+        my_model = FileStorage()
+        self.assertIsInstance(my_model, FileStorage)
 
 if __name__ == '__main__':
     unittest.main()
