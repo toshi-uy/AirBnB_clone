@@ -3,7 +3,6 @@
 convert the dictionary representation to a JSON string
 """
 import json
-from models import city
 from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.city import City
@@ -50,7 +49,9 @@ class FileStorage:
         try:
             with open(self.__file_path, 'r') as f:
                 objects = json.load(f)
-            for key in objects:
-                self.__objects[key] = classes[objects[key]['__class__']](**objects[key])
+                for keys, values in objects.items():
+                    temp = keys.split('.')
+                    new = classes[temp[0]](**values)
+                    self.new(new)
         except FileNotFoundError:
             pass
