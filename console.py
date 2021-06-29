@@ -117,14 +117,19 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif command[0] not in self.classes:
             print("** class doesn't exist **")
+            return
         elif len(command) == 1:
+            print("** instance id missing **")
+            return
+        elif command[0] + "." + command[1] not in storage.all().keys():
             print("** no instance found **")
-        elif command[0] + "." + command[1] not in storage.all():
-            print("** no instance found **")
+            return
         elif len(command) == 2:
             print("** attribute name missing **")
+            return
         elif len(command) == 3:
             print("** value missing **")
+            return
         else:
             new_obj = storage.all().get(command[0] + "." + command[1])
             setattr(new_obj, command[2], command[3][1, -1])
