@@ -6,6 +6,7 @@ from models.base_model import BaseModel
 from models.engine.file_storage import Filestorage
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     """
     Holberton AirBnB clone console
@@ -37,9 +38,9 @@ class HBNBCommand(cmd.Cmd):
         Ex: $ create BaseModel
         """
         if not line:
-            print ("** class name missing **")
+            print("** class name missing **")
         elif line not in self.classes:
-            print ("** class doesn't exist **")
+            print("** class doesn't exist **")
         else:
             new_item = eval(line)()
             print(new_item.id)
@@ -50,9 +51,9 @@ class HBNBCommand(cmd.Cmd):
         based on the class name"""
         command = line.split()
         if not line:
-            print ("** class name missing **")
+            print("** class name missing **")
         elif command[0] not in self.classes:
-            print ("** class doesn't exist **")
+            print("** class doesn't exist **")
         elif len(command) == 1:
             print("** instance id missing **")
         if len(command) == 2:
@@ -92,8 +93,26 @@ class HBNBCommand(cmd.Cmd):
                 list_object.append(new_key + " " + str(value))
         else:
             for key, value in new_item.items():
-              list_object.append(str(key) + " " + str(value))
+                list_object.append(str(key) + " " + str(value))
         print(list_object)
+
+    def do_update(self, line):
+        """Updates an instance based on the class name and id"""
+        command = line.split()
+        new_item = "{}.{}".format(command[0], command[1])
+        if not line:
+            print("** class name missing **")
+        elif command[0] not in self.classes:
+            print("** class doesn't exist **")
+        elif len(command) == 1:
+            print("** no instance found **")
+        elif len(command) == 2:
+            print("** attribute name missing **")
+        elif len(command) == 3:
+            print("** value missing **")
+        else:
+            new_obj = storage.all().get()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
