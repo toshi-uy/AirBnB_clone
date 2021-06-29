@@ -106,6 +106,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(command) == 1:
             print("** no instance found **")
+        elif get_cmd not in storage.all():
+            print("** no instance found **")
         elif len(command) == 2:
             print("** attribute name missing **")
         elif len(command) == 3:
