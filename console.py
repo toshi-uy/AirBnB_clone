@@ -146,14 +146,14 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
                 return
 
-    def do_count(self, line):
+    def count(self, line):
         """
         retrieve the number of instances of a class
         usage: <class name>.count()
         """
         count = 0
         objects = storage.all()
-        if line in self.classes:
+        if line in HBNBCommand.classes:
             for key in objects.keys():
                 search_class = key.split(".")
                 if search_class[0] == line:
