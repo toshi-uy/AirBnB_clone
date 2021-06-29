@@ -154,8 +154,9 @@ class HBNBCommand(cmd.Cmd):
         count = 0
         objects = storage.all()
         if line in self.classes:
-            for key in objects:
-                if line in key:
+            for key in objects.keys():
+                search_class = key.split(".")
+                if search_class[0] == line:
                     count += 1
             print(count)
 
