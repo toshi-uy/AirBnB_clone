@@ -36,3 +36,8 @@ class TestDocs(unittest.TestCase):
 
 class TestCity(unittest.TestCase):
     """Test the City module"""
+
+    def test_class(self):
+        self.assertEqual(City.state_id, "")
+        self.assertEqual(City.name, "")
+        self.assertTrue(issubclass(City, BaseModel))
