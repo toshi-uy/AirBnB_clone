@@ -27,7 +27,7 @@ class HBNBCommand(cmd.Cmd):
         """exits when typing quit"""
         return True
 
-    def do_emptyline(line):
+    def do_emptyline(self):
         """passing emptyline do nothing"""
         pass
 
@@ -105,7 +105,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(command) == 1:
             print("** no instance found **")
-        elif get_cmd not in storage.all():
+        elif command[0] + "." + command[1] not in storage.all():
             print("** no instance found **")
         elif len(command) == 2:
             print("** attribute name missing **")
