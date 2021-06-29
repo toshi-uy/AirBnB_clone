@@ -35,4 +35,3 @@ class TestDocs(unittest.TestCase):
     def test_class_docstring(self):
         """Class docstring length"""
         self.assertTrue(len(BaseModel.__doc__) >= 1)
-
