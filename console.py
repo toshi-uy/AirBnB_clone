@@ -111,8 +111,9 @@ class HBNBCommand(cmd.Cmd):
         elif len(command) == 3:
             print("** value missing **")
         else:
-            new_obj = storage.all().get()
-
+            new_obj = storage.all().get(new_item)
+            setattr(new_obj, command[2], command[3][1,-1])
+            new_obj.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
