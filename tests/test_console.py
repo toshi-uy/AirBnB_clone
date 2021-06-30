@@ -36,36 +36,94 @@ class Test_Console(unittest.TestCase):
             expected = HBNBCommand.prompt
             self.assertEqual(expected, "(hbnb) ")
 
-    def test_help_show(self):
-        """Tests the help show"""
-        with patch('sys.stdout', new=StringIO()) as f:
-            givven = HBNBCommand().onecmd("help show")
-            expected = "Prints the string representation of an\
-                instance based on the class name"
-            self.assertEqual(givven, expected)
+    def test_quit_message(self):
+        """ Test quit message """
+        outputexpected = "Quit command to exit the program"
+        with patch("sys.stdout", new=StringIO()) as salida:
+            self.assertFalse(HBNBCommand().onecmd("help quit"))
+            self.assertEqual(outputexpected, salida.getvalue().strip())
 
-    def test_help_exit(self):
-        """Tests the help exit"""
-        with patch('sys.stdout', new=StringIO()) as f:
-            givven = HBNBCommand().onecmd("help exit")
-            expected = "exits when typing quit"
-            self.assertEqual(givven, expected)
-
-    def test_help_create(self):
-        """Tests the help create"""
-        with patch('sys.stdout', new=StringIO()) as f:
-            givven = HBNBCommand().onecmd("help create")
-            expected = "Creates a new instance of BaseModel,\
-                saves it (to the JSON file) and prints the id.\
-                Ex: $ create BaseModel"
-            self.assertEqual(givven, expected)
+    def test_EOF_message(self):
+        """ Test EOF message """
+        outputexpected = "Exits on EOF"
+        with patch("sys.stdout", new=StringIO()) as salida:
+            self.assertFalse(HBNBCommand().onecmd("help EOF"))
+            self.assertEqual(outputexpected, salida.getvalue().strip())
 
     def test_help_all(self):
-        """Tests the help all"""
-        with patch('sys.stdout', new=StringIO()) as f:
-            givven = HBNBCommand().onecmd("help all")
-            expected = "Prints all string representation of all instances"
-            self.assertEqual(givven, expected)
+        """ Test help all message """
+        outputexpected = "Prints all the str representation of the instances"
+        with patch("sys.stdout", new=StringIO()) as salida:
+            self.assertFalse(HBNBCommand().onecmd("help all"))
+            self.assertEqual(outputexpected, salida.getvalue().strip())
+
+    def test_help_count(self):
+        """ Test help count message """
+        outputexpected = "Prints amount of instances of a class"
+        with patch("sys.stdout", new=StringIO()) as salida:
+            self.assertFalse(HBNBCommand().onecmd("help count"))
+            self.assertEqual(outputexpected, salida.getvalue().strip())
+
+    def test_help_create(self):
+        """ Test help create message """
+        outputexpected = "Creates a new instance of BaseModel,\
+        saves it (to the JSON file) and prints the id.\
+        Ex: $ create BaseModel"
+        with patch("sys.stdout", new=StringIO()) as salida:
+            self.assertFalse(HBNBCommand().onecmd("help create"))
+            self.assertEqual(outputexpected, salida.getvalue().strip())
+
+    def test_help_help(self):
+        """ Test help help message """
+        out1 = "List available commands with \""
+        out2 = "help\" or detailed help with \"help cmd\"."
+        outputexpected = out1 + out2
+        with patch("sys.stdout", new=StringIO()) as salida:
+            self.assertFalse(HBNBCommand().onecmd("help help"))
+            self.assertEqual(outputexpected, salida.getvalue().strip())
+
+    def test_help_show(self):
+        """ Test help show message """
+        outputexpected = "Prints the string representation of an instance\
+        based on the class name"
+        with patch("sys.stdout", new=StringIO()) as salida:
+            self.assertFalse(HBNBCommand().onecmd("help show"))
+            self.assertEqual(outputexpected, salida.getvalue().strip())
+
+    def test_help_destroy(self):
+        """ Test help destroy message """
+        outputexpected = "method to delete an instance based on the class name\
+                and id"
+        with patch("sys.stdout", new=StringIO()) as salida:
+            self.assertFalse(HBNBCommand().onecmd("help destroy"))
+            self.assertEqual(outputexpected, salida.getvalue().strip())
+
+    def test_help_update(self):
+        """ Test help update message """
+        out1 = "Updates an instance based on the class name"
+        out2 = " and\n        id by adding or updating attribute"
+        outputexpected = out1 + out2
+        with patch("sys.stdout", new=StringIO()) as salida:
+            self.assertFalse(HBNBCommand().onecmd("help update"))
+            self.assertEqual(outputexpected, salida.getvalue().strip())
+
+    def test_help_message(self):
+        """ Test only help message """
+        out1 = "Documented commands (type help <topic>):\n="
+        out2 = "=======================================\n"
+        out3 = "EOF  all  count  create  destroy  help  quit  show  update"
+        outputexpected = out1 + out2 + out3
+        with patch("sys.stdout", new=StringIO()) as salida:
+            self.assertFalse(HBNBCommand().onecmd("help"))
+            self.assertEqual(outputexpected, salida.getvalue().strip())
+
+    def test_empty_line_and_enter(self):
+        """ Test empty line """
+        outputexpected = ""
+        with patch("sys.stdout", new=StringIO()) as salida:
+            self.assertFalse(HBNBCommand().onecmd("\n"))
+            self.assertEqual(outputexpected, salida.getvalue().strip())
+
 
     def setUp(self):
         """Set up tests."""
