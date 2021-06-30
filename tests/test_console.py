@@ -58,14 +58,13 @@ class Test_Console(unittest.TestCase):
             self.assertEqual(out, salida.getvalue().strip())
     
     def test_help_create(self):
-        """ Test help create"""
-        out1 = "Creates a new instance of BaseModel,\""
-        out2 = "saves it (to the JSON file) and prints the id.\""
-        out3 = "Ex: $ create BaseModel"
-        outputexpected = out1 + out2 + out3
-        with patch("sys.stdout", new=StringIO()) as salida:
+        """Test the create help"""
+        out = """Creates a new instance of BaseModel,
+        saves it (to the JSON file) and prints the id.
+        Ex: $ create BaseModel"""
+        with patch("sys.stdout", new=StringIO()) as f:
             self.assertFalse(HBNBCommand().onecmd("help create"))
-            self.assertEqual(outputexpected, salida.getvalue().strip())
+            self.assertEqual(out, f.getvalue().strip())
 
 
     def setUp(self):
