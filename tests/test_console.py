@@ -1,0 +1,80 @@
+#!/usr/bin/python3
+"""test the Console itself"""
+import unittest
+from console import HBNBCommand
+from models import storage
+from models.engine.file_storage import FileStorage
+from models.base_model import BaseModel
+from models.amenity import Amenity
+from models.city import City
+from datetime import datetime
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
+import pep8
+from unittest.mock import patch
+from io import StringIO
+import cmd
+
+
+class Test_pep8(unittest.TestCase):
+    """pep8 test cases class"""
+    def test_pep8_conformance(self):
+        """Test that we conform to PEP8."""
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['console.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
+class Test_Console(unittest.TestCase):
+    """Tests the entire console"""
+
+    def test_prompt(self):
+        """tests the prompt"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            expected = HBNBCommand.prompt
+            self.assertEqual(expected, "(hbnb) ")
+
+    def test_help_show(self):
+        """Tests the help show"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            givven = HBNBCommand().onecmd("help show")
+            expected = "Prints the string representation of an\
+                instance based on the class name"
+            self.assertEqual(givven, expected)
+
+    def test_help_exit(self):
+        """Tests the help exit"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            givven = HBNBCommand().onecmd("help exit")
+            expected = "Prints the string representation of an\
+                instance based on the class name"
+            self.assertEqual(givven, expected)
+
+    def test_help_create(self):
+        """Tests the help create"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            givven = HBNBCommand().onecmd("help _create")
+            expected = "Creates a new instance of BaseModel,\
+                saves it (to the JSON file) and prints the id.\
+                Ex: $ create BaseModel"
+            self.assertEqual(givven, expected)
+
+    def test_help_all(self):
+        """Tests the help all"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            givven = HBNBCommand().onecmd("help show")
+            expected = "Prints the string representation of an\
+                instance based on the class name"
+            self.assertEqual(givven, expected)
+
+    def setUp(self):
+        """Set up tests."""
+        storage.reload()
+
+    def test_exit(self):
+        """Tests the exit command"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            self.assertTrue(HBNBCommand().onecmd("quit"))
+    
