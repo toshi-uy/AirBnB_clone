@@ -48,14 +48,13 @@ class Test_Console(unittest.TestCase):
         """Tests the help exit"""
         with patch('sys.stdout', new=StringIO()) as f:
             givven = HBNBCommand().onecmd("help exit")
-            expected = "Prints the string representation of an\
-                instance based on the class name"
+            expected = "exits when typing quit"
             self.assertEqual(givven, expected)
 
     def test_help_create(self):
         """Tests the help create"""
         with patch('sys.stdout', new=StringIO()) as f:
-            givven = HBNBCommand().onecmd("help _create")
+            givven = HBNBCommand().onecmd("help create")
             expected = "Creates a new instance of BaseModel,\
                 saves it (to the JSON file) and prints the id.\
                 Ex: $ create BaseModel"
@@ -64,9 +63,8 @@ class Test_Console(unittest.TestCase):
     def test_help_all(self):
         """Tests the help all"""
         with patch('sys.stdout', new=StringIO()) as f:
-            givven = HBNBCommand().onecmd("help show")
-            expected = "Prints the string representation of an\
-                instance based on the class name"
+            givven = HBNBCommand().onecmd("help all")
+            expected = "Prints all string representation of all instances"
             self.assertEqual(givven, expected)
 
     def setUp(self):
