@@ -2,7 +2,7 @@
 """test the FileStorage method"""
 import unittest
 from models.base_model import BaseModel
-# from models.engine.file_storage import FileStorage
+from models.engine.file_storage import FileStorage
 from models import storage
 import os
 import pep8
@@ -23,12 +23,12 @@ class Test_FileStorage(unittest.TestCase):
     """Test the FileStorage"""
     def test_docstring(self):
         """module docstring length"""
-        self.assertTrue(len(storage.FileStorage.__doc__) >= 1)
+        self.assertTrue(len(FileStorage.__doc__) >= 1)
 
     def test_is_an_instance(self):
         """function test_is_an_instance"""
-        my_model = storage.FileStorage()
-        self.assertIsInstance(my_model, storage.FileStorage)
+        my_model = FileStorage()
+        self.assertIsInstance(my_model, FileStorage)
 
     def test_FileStorage(self):
         """Test the FileStorage method itself using example """
