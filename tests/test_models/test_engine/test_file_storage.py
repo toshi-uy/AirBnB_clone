@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""test the Amenity method"""
+"""test the FileStorage method"""
 import unittest
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
