@@ -47,7 +47,7 @@ class Test_user(unittest.TestCase):
         self.assertTrue(issubclass(User, BaseModel))
     
     def test_class1(self):
-        """test user class"""
+        """test user"""
         all_objs = storage.all()
         print("-- Reloaded objects --")
         for obj_id in all_objs.keys():
