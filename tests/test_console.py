@@ -53,9 +53,9 @@ class Test_Console(unittest.TestCase):
     def test_help_emptyline(self):
         """Test empty line"""
         out = ""
-        with patch("sys.stdout", new=StringIO()) as salida:
+        with patch("sys.stdout", new=StringIO()) as f:
             self.assertFalse(HBNBCommand().onecmd("\n"))
-            self.assertEqual(out, salida.getvalue().strip())
+            self.assertEqual(out, f.getvalue().strip())
     
     def setUp(self):
         """Set up tests."""
