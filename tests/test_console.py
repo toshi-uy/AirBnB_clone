@@ -27,6 +27,7 @@ class Test_pep8(unittest.TestCase):
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
+
 class Test_Console(unittest.TestCase):
     """Tests the entire console"""
 
@@ -44,4 +45,3 @@ class Test_Console(unittest.TestCase):
         """Tests the exit command"""
         with patch('sys.stdout', new=StringIO()) as f:
             self.assertTrue(HBNBCommand().onecmd("quit"))
-    
