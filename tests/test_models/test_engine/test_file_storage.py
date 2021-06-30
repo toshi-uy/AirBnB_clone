@@ -25,40 +25,42 @@ class Test_FileStorage(unittest.TestCase):
         """module docstring length"""
         self.assertTrue(len(FileStorage.__doc__) >= 1)
 
+    def test_FileStorage_arg(self):
+        """testing file storage with an argument"""
+        with self.assertRaises(TypeError):
+            FileStorage("Holberton")
+        with self.assertRaises(TypeError):
+            FileStorage("89")
+        with self.assertRaises(TypeError):
+            FileStorage(None)
+
     def test_is_an_instance(self):
         """function test_is_an_instance"""
         my_model = FileStorage()
         self.assertIsInstance(my_model, FileStorage)
 
-    def test_FileStorage(self):
-        """Test the FileStorage method itself using example """
-        all_objs = storage.all()
-        print("-- Reloaded objects --")
-        for obj_id in all_objs.keys():
-            obj = all_objs[obj_id]
-            print(obj)
+    def test_file_path(self):
+        """testing file path"""
+        self.assertEqual(str, type(FileStorage._FileStorage__file_path))
 
-        print("-- Create a new object --")
-        my_model = BaseModel()
+    def test_All(self):
+        """Test the FileStorage method itself using example """
+        object_1 = FileStorage()
+        object_data = object_1.all()
+        self.assertIsNotNone(object_data)
+        self.assertEqual(type(object_data), dict)
+
+    def test_FileStorage_1(self):
+        """Tests the FileStorage again"""
+        my_model = FileStorage
         my_model.name = "Holberton"
         my_model.my_number = 89
-        my_model.save()
-        print(my_model)
-
-        print("-- Create a new object 2 --")
-        my_model = BaseModel()
-        my_model.name = "Apple"
-        my_model.my_number = 28
-        my_model.save()
-        print(my_model)
-
-        print("-- Create a new object 3 --")
-        my_model = BaseModel()
-        my_model.name = "AirBnB"
-        my_model.my_number = 98
-        my_model.save()
-        print(my_model)
-
+        self.assertEqual(str(type(FileStorage)), "<class 'type'>")
+        self.assertTrue(isinstance(my_model, FileStorage))
+        self.assertTrue(type(my_model), object)
+    
+    def test_reload(self):
+        """tests the reload"""
 
 if __name__ == '__main__':
     unittest.main()
