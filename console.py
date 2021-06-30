@@ -67,13 +67,14 @@ class HBNBCommand(cmd.Cmd):
         elif len(comm) == 1:
             print("** instance id missing **")
             return
-        if len(comm) == 2:
+        else:
             new_item = "{}.{}".format(comm[0], comm[1])
-            if new_item not in storage.all():
+            if new_item not in storage.all().keys():
                 print("** no instance found **")
                 return
             else:
-                print(storage.all()[new_item])
+                print("[{}] ({}) {}".format(comm[0],
+                                            comm[1], storage.all()[new_item]))
 
     def do_destroy(self, line):
         """method to delete an instance based on the class name and id"""
