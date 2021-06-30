@@ -52,3 +52,11 @@ class Test_user(unittest.TestCase):
         self.assertEqual(User.first_name, "Miguel")
         self.assertEqual(User.last_name, "")
         self.assertTrue(issubclass(User, BaseModel))
+    
+    def test_instance(self):
+        our_user = User()
+        self.assertEqual(our_user.email, "")
+        self.assertEqual(our_user.password, "")
+        self.assertEqual(our_user.first_name, "")
+        self.assertEqual(our_user.last_name, "")
+        self.assertTrue(isinstance(our_user, BaseModel))
