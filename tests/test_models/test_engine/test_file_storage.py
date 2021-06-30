@@ -52,7 +52,7 @@ class Test_FileStorage(unittest.TestCase):
 
     def test_FileStorage_1(self):
         """Tests the FileStorage again"""
-        my_model = FileStorage
+        my_model = FileStorage()
         my_model.name = "Holberton"
         my_model.my_number = 89
         self.assertEqual(str(type(FileStorage)), "<class 'type'>")
