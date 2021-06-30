@@ -5,6 +5,7 @@ from models.base_model import BaseModel
 from models.user import User
 import inspect
 from models import storage
+import pep8
 
 
 class Test_pep8(unittest.TestCase):
