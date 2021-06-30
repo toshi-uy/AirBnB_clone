@@ -49,6 +49,15 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(bmodel_1.created_at, datetime)
         # test if update_at is datetime
         self.assertIsInstance(bmodel_1.updated_at, datetime)
+        # test if type is object
+        self.assertTrue(type(bmodel_1), object)
+        # test if it's a Basemodel instance
+        self.assertTrue(isinstance(bmodel_1, BaseModel))
+
+    def test_BaseModel_None(self):
+        # test setting None as attribute
+        bmodel_3 = BaseModel(None)
+        self.assertNotIn(None, bmodel_3.__dict__.values())
 
     def test_save0(self):
         """Test of the save method"""
@@ -58,16 +67,29 @@ class TestBaseModel(unittest.TestCase):
         with open("file.json", "r") as f:
             self.assertIn(bmodel_2id, f.read())
 
+    def test_save1(self):
+        """Another Test of the save method"""
+        bmodel_4 = BaseModel()
+        bmodel_4.name = "Miguel"
+        bmodel_4.my_number = 4
+        bmodel_4.save()
+        self.assertNotEqual(bmodel_4.created_at, bmodel_4.updated_at)
+
     def test_to_dict(self):
         """Test of the to_dict function"""
-        bmodel_1 = BaseModel()
-        dictionary_1 = bmodel_1.to_dict()
+        bmodel_5 = BaseModel()
+        dictionary_5 = bmodel_5.to_dict()
         # test the dict type
-        self.assertIsInstance(dictionary_1, dict)
+        self.assertIsInstance(dictionary_5, dict)
+        # test for the dict instances
+        self.assertEqual(bmodel_5.to_dict()["id"], bmodel_5.id)
+        self.assertEqual(bmodel_5.to_dict()["my_number"], bmodel_5.my_number)
+        self.assertEqual(bmodel_5.to_dict()["name"], bmodel_5.name)
+        self.assertEqual(bmodel_5.to_dict()["__class__"], "BaseModel")
         # test if the dictionary updates
-        bmodel_1.save()
-        dict_2 = bmodel_1.to_dict()
-        self.assertNotEqual(dictionary_1["updated_at"], dict_2["updated_at"])
+        bmodel_5.save()
+        dict_2 = bmodel_5.to_dict()
+        self.assertNotEqual(dictionary_5["updated_at"], dict_2["updated_at"])
 
 if __name__ == "__main__":
     unittest.main()
