@@ -70,8 +70,7 @@ class TestBaseModel(unittest.TestCase):
     def test_save1(self):
         """Another Test of the save method"""
         bmodel_4 = BaseModel()
-        bmodel_4.name = "Miguel"
-        bmodel_4.my_number = 4
+        bmodel_4.first_name = "Miguel"
         bmodel_4.save()
         self.assertNotEqual(bmodel_4.created_at, bmodel_4.updated_at)
 
@@ -83,8 +82,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(dictionary_5, dict)
         # test for the dict instances
         self.assertEqual(bmodel_5.to_dict()["id"], bmodel_5.id)
-        self.assertEqual(bmodel_5.to_dict()["my_number"], bmodel_5.my_number)
-        self.assertEqual(bmodel_5.to_dict()["name"], bmodel_5.name)
         self.assertEqual(bmodel_5.to_dict()["__class__"], "BaseModel")
         # test if the dictionary updates
         bmodel_5.save()
