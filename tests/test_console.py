@@ -37,6 +37,14 @@ class Test_Console(unittest.TestCase):
             expected = HBNBCommand.prompt
             self.assertEqual(expected, "(hbnb) ")
 
+    def test_help_quit(self):
+        """tests the help quit"""
+        out = "exits when typing quit"
+        with patch("sys.stdout", new=StringIO()) as salida:
+            self.assertFalse(HBNBCommand().onecmd("help quit"))
+            self.assertEqual(out, salida.getvalue().strip())
+
+
     def setUp(self):
         """Set up tests."""
         storage.reload()
