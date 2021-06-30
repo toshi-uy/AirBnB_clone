@@ -45,6 +45,20 @@ class Test_FileStorage(unittest.TestCase):
         my_model.save()
         print(my_model)
 
+        print("-- Create a new object 2 --")
+        my_model = BaseModel()
+        my_model.name = "Apple"
+        my_model.my_number = 28
+        my_model.save()
+        print(my_model)
+
+        print("-- Create a new object 3 --")
+        my_model = BaseModel()
+        my_model.name = "AirBnB"
+        my_model.my_number = 98
+        my_model.save()
+        print(my_model)
+
 
 if __name__ == '__main__':
     unittest.main()
