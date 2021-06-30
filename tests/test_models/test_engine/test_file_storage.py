@@ -2,11 +2,12 @@
 """test the FileStorage method"""
 import unittest
 from models.base_model import BaseModel
+from models.city import City
 from models.engine.file_storage import FileStorage
 from models import storage
-import os
+from os import path
+import json
 import pep8
-import inspect
 
 
 class Test_pep8(unittest.TestCase):
@@ -39,6 +40,11 @@ class Test_FileStorage(unittest.TestCase):
         my_model = FileStorage()
         self.assertIsInstance(my_model, FileStorage)
 
+    def test_storage(self):
+        """testing storage"""
+        self.assertIsInstance(storage, FileStorage)
+        self.assertEqual(type(storage), FileStorage)
+
     def test_file_path(self):
         """testing file path"""
         self.assertEqual(str, type(FileStorage._FileStorage__file_path))
@@ -61,6 +67,21 @@ class Test_FileStorage(unittest.TestCase):
     
     def test_reload(self):
         """tests the reload"""
+        if not path.exists("file.json"):
+            new_file = FileStorage()
+            new_base = BaseModel(id="123", created_at="2021-02-17T22:46:38.86",
+                                 updated_at="2021-02-17T22:46:38.86")
+            new_city = City()
+            new_file.new(new_base)
+            new_file.new(new_city)
+            new_file.save()
+        with open("file.json", "r") as f:
+            obj = json.load(f)
+        self.assertEqual(type(obj), dict)
+
+    def test_reload_with_arg(self):
+        with self.assertRaises(TypeError):
+            storage.reload(None)
 
 if __name__ == '__main__':
     unittest.main()
