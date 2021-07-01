@@ -55,16 +55,16 @@ class Test_Console(unittest.TestCase):
     def test_help_quit(self):
         """tests the help quit"""
         out = "exits when typing quit"
-        with patch("sys.stdout", new=StringIO()) as salida:
+        with patch("sys.stdout", new=StringIO()) as f:
             self.assertFalse(HBNBCommand().onecmd("help quit"))
-            self.assertEqual(out, salida.getvalue().strip())
+            self.assertEqual(out, f.getvalue().strip())
 
     def test_help_emptyline(self):
         """Test empty line"""
         out = ""
-        with patch("sys.stdout", new=StringIO()) as salida:
+        with patch("sys.stdout", new=StringIO()) as f:
             self.assertFalse(HBNBCommand().onecmd("\n"))
-            self.assertEqual(out, salida.getvalue().strip())
+            self.assertEqual(out, f.getvalue().strip())
 
     def test_help_create(self):
         """Test the create help"""
@@ -98,3 +98,42 @@ class Test_Console(unittest.TestCase):
         """Tests the exit command"""
         with patch('sys.stdout', new=StringIO()) as f:
             self.assertTrue(HBNBCommand().onecmd("quit"))
+
+    def test_create_BaseModel(self):
+        """Tests the base model"""
+        out = "<class 'str'>"
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.assertFalse(HBNBCommand().onecmd("create BaseModel"))
+            xd = str(type(f.getvalue().strip()))
+            self.assertEqual(out, xd)
+
+    def test_create_User(self):
+        """ Test create a User """
+        f = "<class 'str'>"
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.assertFalse(HBNBCommand().onecmd("create User"))
+            xd = str(type(f.getvalue().strip()))
+            self.assertEqual(f, xd)
+
+    def test_create_amenity(self):
+        """ Test create a Amenity """
+        f = "<class 'str'>"
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.assertFalse(HBNBCommand().onecmd("create Amenity"))
+            xd = str(type(f.getvalue().strip()))
+            self.assertEqual(f, xd)
+
+    def test_create_city(self):
+        """ Test create a City """
+        f = "<class 'str'>"
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.assertFalse(HBNBCommand().onecmd("create City"))
+            xd = str(type(f.getvalue().strip()))
+            self.assertEqual(f, xd)
+
+    def test_create_error(self):
+        """ Test create a create class error """
+        f = "** class doesn't exist **"
+        with patch("sys.stdout", new=StringIO()) as f:
+            self.assertFalse(HBNBCommand().onecmd("create asdas"))
+            self.assertEqual(f, f.getvalue().strip())
