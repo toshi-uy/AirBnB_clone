@@ -94,11 +94,6 @@ class Test_Console(unittest.TestCase):
         """Set up tests."""
         storage.reload()
 
-    def test_exit(self):
-        """Tests the exit command"""
-        with patch('sys.stdout', new=StringIO()) as f:
-            self.assertTrue(HBNBCommand().onecmd("quit"))
-
     def test_create_BaseModel(self):
         """Tests the base model"""
         out = "<class 'str'>"
@@ -137,3 +132,8 @@ class Test_Console(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as f:
             self.assertFalse(HBNBCommand().onecmd("create asdas"))
             self.assertEqual(out, f.getvalue().strip())
+
+    def test_exit(self):
+        """Tests the exit command"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            self.assertTrue(HBNBCommand().onecmd("quit"))
