@@ -23,7 +23,7 @@ class Test_pep8(unittest.TestCase):
     def test_pep8_conformance(self):
         """Test that we conform to PEP8."""
         pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['console.py'])
+        result = pep8style.check_files(['tests/test_console.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
@@ -65,7 +65,7 @@ class Test_Console(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as salida:
             self.assertFalse(HBNBCommand().onecmd("\n"))
             self.assertEqual(out, salida.getvalue().strip())
-    
+
     def test_help_create(self):
         """Test the create help"""
         out = """Creates a new instance of BaseModel,
