@@ -94,45 +94,6 @@ class Test_Console(unittest.TestCase):
         """Set up tests."""
         storage.reload()
 
-    def test_create_BaseModel(self):
-        """Tests the base model"""
-        out = "<class 'str'>"
-        with patch("sys.stdout", new=StringIO()) as f:
-            self.assertFalse(HBNBCommand().onecmd("create BaseModel"))
-            xd = str(type(f.getvalue().strip()))
-            self.assertEqual(out, xd)
-
-    def test_create_User(self):
-        """ Test create a User """
-        out = "<class 'str'>"
-        with patch("sys.stdout", new=StringIO()) as f:
-            self.assertFalse(HBNBCommand().onecmd("create User"))
-            xd = str(type(f.getvalue().strip()))
-            self.assertEqual(out, xd)
-
-    def test_create_amenity(self):
-        """ Test create a Amenity """
-        out = "<class 'str'>"
-        with patch("sys.stdout", new=StringIO()) as f:
-            self.assertFalse(HBNBCommand().onecmd("create Amenity"))
-            xd = str(type(f.getvalue().strip()))
-            self.assertEqual(out, xd)
-
-    def test_create_city(self):
-        """ Test create a City """
-        out = "<class 'str'>"
-        with patch("sys.stdout", new=StringIO()) as f:
-            self.assertFalse(HBNBCommand().onecmd("create City"))
-            xd = str(type(f.getvalue().strip()))
-            self.assertEqual(out, xd)
-
-    def test_create_error(self):
-        """ Test create a create class error """
-        out = "** class doesn't exist **"
-        with patch("sys.stdout", new=StringIO()) as f:
-            self.assertFalse(HBNBCommand().onecmd("create asdas"))
-            self.assertEqual(out, f.getvalue().strip())
-
     def test_exit(self):
         """Tests the exit command"""
         with patch('sys.stdout', new=StringIO()) as f:
