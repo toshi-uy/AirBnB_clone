@@ -109,31 +109,31 @@ class Test_Console(unittest.TestCase):
 
     def test_create_User(self):
         """ Test create a User """
-        f = "<class 'str'>"
+        out = "<class 'str'>"
         with patch("sys.stdout", new=StringIO()) as f:
             self.assertFalse(HBNBCommand().onecmd("create User"))
             xd = str(type(f.getvalue().strip()))
-            self.assertEqual(f, xd)
+            self.assertEqual(out, xd)
 
     def test_create_amenity(self):
         """ Test create a Amenity """
-        f = "<class 'str'>"
+        out = "<class 'str'>"
         with patch("sys.stdout", new=StringIO()) as f:
             self.assertFalse(HBNBCommand().onecmd("create Amenity"))
             xd = str(type(f.getvalue().strip()))
-            self.assertEqual(f, xd)
+            self.assertEqual(out, xd)
 
     def test_create_city(self):
         """ Test create a City """
-        f = "<class 'str'>"
+        out = "<class 'str'>"
         with patch("sys.stdout", new=StringIO()) as f:
             self.assertFalse(HBNBCommand().onecmd("create City"))
             xd = str(type(f.getvalue().strip()))
-            self.assertEqual(f, xd)
+            self.assertEqual(out, xd)
 
     def test_create_error(self):
         """ Test create a create class error """
-        f = "** class doesn't exist **"
+        out = "** class doesn't exist **"
         with patch("sys.stdout", new=StringIO()) as f:
             self.assertFalse(HBNBCommand().onecmd("create asdas"))
-            self.assertEqual(f, f.getvalue().strip())
+            self.assertEqual(out, f.getvalue().strip())
