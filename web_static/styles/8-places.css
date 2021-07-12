@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    flex: 1;
 }
 .places h1 {
     width: 100%;    
@@ -45,15 +46,70 @@ article {
 .information {
     display: flex;
     justify-content: center;
+    flex-flow: row wrap;
+    align-content: space-between;
     align-items: center;
     height: 80px;
     border-bottom: solid 1px #DDDDDD;
     border-top: solid 1px #DDDDDD;
+    margin-top: 20px;
 }
-.max_guests_icon {
-    background-image: url('/Users/toshi/Holbeton/AirBnB_clone-1/images/logo.png');
+.information p{
+    margin-bottom: 0;
+    margin-top: 0;
+    padding:0;
+    height: 15%;
+}
+.max_guest {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
     height: 60px;
-    width: 142px;
-    align-self: center;
-    margin-left: 20px;
+}
+
+.max_guest_icon {
+    width: 60px;
+    height: 60px;
+    background-image: url(/Users/toshi/Holbeton/AirBnB_clone-1/images/icon_group.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.number_rooms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    height: 60px;
+}
+.number_rooms_icon {
+    width: 60px;
+    height: 60px;
+    background-image: url(/Users/toshi/Holbeton/AirBnB_clone-1/images/icon_bed.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.number_bathrooms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    height: 60px;
+}
+.number_bathrooms_icon {
+    width: 60px;
+    height: 60px;
+    background-image: url(/Users/toshi/Holbeton/AirBnB_clone-1/images/icon_bath.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.user {
+    width: 100%;
+    margin-top: 20px;
+}
+.description {
+    width: 100%;
+    margin-top: 10px;
+    text-align: left; 
+    display: flex;   
 }
