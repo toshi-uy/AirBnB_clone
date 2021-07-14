@@ -1,0 +1,218 @@
+* {
+    max-width: 100%;
+}
+.places {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+}
+.places h1 {
+    width: 100%;    
+    font-size: 30px;
+}
+.places > article {
+    display: flex;
+    width: 390px;
+    padding: 20px;  
+    margin: 20px;
+    flex-direction: column;
+    border: solid 1px #FF5A5F;
+    border-radius: 4px;
+}
+.places > article > h2 {
+    margin: 10px;
+    font-size: 30px;
+    text-align: center;
+    position: absolute;
+    padding-left: 100px;
+}
+.places > article > .price_by_night {
+    display: flex;
+    color: #FF5A5F;
+    border: solid 4px;
+    border-radius: 50%;
+    min-width: 60px;
+    min-height: 60px;
+    align-items: center;
+    margin-left: auto;
+}
+.places > article > .price_by_night span {
+    position: relative;
+    font-size: 30px;
+    text-align: center;
+    color:  #FF5A5F;
+    padding: 6px;
+}
+.places > article > .information {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    align-content: space-between;
+    align-items: center;
+    height: 80px;
+    border-bottom: solid 1px #DDDDDD;
+    border-top: solid 1px #DDDDDD;
+    margin-top: 20px;
+}
+.places > article > .information p{
+    margin-bottom: 0;
+    margin-top: 0;
+    padding:0;
+    height: 15%;
+}
+.places > article > .information > .max_guest {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    height: 60px;
+}
+
+.max_guest_icon {
+    width: 60px;
+    height: 60px;
+    background-image: url(/Users/toshi/Holbeton/AirBnB_clone-1/images/icon_group.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.places > article > .information > .number_rooms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    height: 60px;
+}
+.number_rooms_icon {
+    width: 60px;
+    height: 60px;
+    background-image: url(/Users/toshi/Holbeton/AirBnB_clone-1/images/icon_bed.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.places > article > .information > .number_bathrooms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    height: 60px;
+}
+.number_bathrooms_icon {
+    width: 60px;
+    height: 60px;
+    background-image: url(/Users/toshi/Holbeton/AirBnB_clone-1/images/icon_bath.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.places > article > .information > .user {
+    width: 100%;
+    margin-top: 10px;
+}
+.description > p{
+    width: 100%;
+    margin-top: 10px;
+    text-align: left; 
+    display: flex;   
+}
+.places > article > .information > .description > p {
+    text-align: left; 
+}
+.places > article > .amenities {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    font-size: 16px;
+}
+.places > article > .amenities h2 { 
+    width: 100%;
+    font-size: 16px;
+    text-align: left;
+    border-bottom: solid 1px #DDDDDD;
+}
+.places > article > .amenities ul {
+    padding: 0 auto;
+    list-style-type: none;
+    text-align: left;
+    padding-left: 0;
+}
+.amenities_pet_icon {
+    position:relative;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url(/Users/toshi/Holbeton/AirBnB_clone-1/images/icon_pets.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+.amenities_1 {
+    display: flex;
+}
+.amenities_tv_icon {
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url(/Users/toshi/Holbeton/AirBnB_clone-1/images/icon_tv.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+.amenities_wifi_icon {
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url(/Users/toshi/Holbeton/AirBnB_clone-1/images/icon_wifi.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: left;  
+}
+.amenities_dish_icon {
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url(/Users/toshi/Holbeton/AirBnB_clone-1/images/dishwasher.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: left;  
+}
+.amenities_hair_icon {
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url(/Users/toshi/Holbeton/AirBnB_clone-1/images/hair-straightener.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: left;  
+}
+.reviews {
+    margin-top: 40px;
+    font-size: 16px;
+}
+.places > article > .reviews h2 { 
+    width: 100%;
+    font-size: 16px;
+    text-align: left;
+    border-bottom: solid 1px #DDDDDD;
+}
+.places > article > .reviews h3 { 
+    width: 100%;
+    font-size: 14px;
+    text-align: left;
+}
+.places > article > .reviews p { 
+    width: 100%;
+    font-size: 12px;
+    text-align: left;
+}
+.places > article > .reviews ul {
+    padding: 0 auto;
+    font-size: 12px;
+    list-style-type: none;
+    text-align: left;
+    padding-left: 0;
+}
+@-ms-viewport{
+    width: device-width;
+}
