@@ -34,6 +34,9 @@ h4 {
 .filters > ul {
     list-style-type: none;
 }
+.amenities > ul {
+    list-style-type: none;
+}
 button {
     font-size: 18px;
     background-color:  #FF5A5F;
@@ -62,7 +65,11 @@ button:hover {
     display: none;
 }
 .locations:hover > .popover {
-    display: block;
+    display: flex;
+    flex-direction: column;
+}
+.popover ul {
+    list-style-type: none;
 }
 .popover h2 {
     padding-left: 30px;
