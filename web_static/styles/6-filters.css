@@ -4,7 +4,7 @@
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 }
 .locations {
@@ -13,7 +13,7 @@
     border-right: solid 1px #DDDDDD;
     padding-left: 30px;
 }
-.amenities {
+.filters > .amenities {
     height: 100%;
     width: 25%;
     padding-left: 30px;
@@ -31,7 +31,7 @@ h4 {
     font-weight: 400;
     font-size: 14px;
 }
-ul {
+.filters > ul {
     list-style-type: none;
 }
 button {
@@ -67,10 +67,10 @@ button:hover {
 .popover h2 {
     padding-left: 30px;
 }
-.amenities:hover > .popover {
+.filters > .amenities:hover > .popover {
     display: block;
 }
-.amenities > .popover {
+.filters > .amenities > .popover {
     padding-left: 30px;
     padding-top: 10px;
 }

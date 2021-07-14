@@ -2,12 +2,11 @@ body {
     padding: 0;
     margin: 0;
     display:flex;
-    min-height: 150vh;
+    min-height: 100vh;
     flex-direction: column;
     color: #484848;
     font-size: 14px;
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    height: max-content;
 }
 .container {
     align-self: center;
@@ -15,6 +14,6 @@ body {
     max-width: 1000px;
     margin-top: 30px;
     margin-bottom: 30px;
-    padding: 0;
     flex: 1;
+    padding-bottom: 50px;
 }

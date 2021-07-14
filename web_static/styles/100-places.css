@@ -115,6 +115,101 @@
 .places > article > .information > .description > p {
     text-align: left; 
 }
+.places > article > .amenities {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    font-size: 16px;
+}
+.places > article > .amenities h2 { 
+    width: 100%;
+    font-size: 16px;
+    text-align: left;
+    border-bottom: solid 1px #DDDDDD;
+}
+.places > article > .amenities ul {
+    padding: 0 auto;
+    list-style-type: none;
+    text-align: left;
+    padding-left: 0;
+}
+.amenities_pet_icon {
+    position:relative;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url(/Users/toshi/Holbeton/AirBnB_clone-1/images/icon_pets.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+.amenities_1 {
+    display: flex;
+}
+.amenities_tv_icon {
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url(/Users/toshi/Holbeton/AirBnB_clone-1/images/icon_tv.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+.amenities_wifi_icon {
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url(/Users/toshi/Holbeton/AirBnB_clone-1/images/icon_wifi.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: left;  
+}
+.amenities_dish_icon {
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url(/Users/toshi/Holbeton/AirBnB_clone-1/images/dishwasher.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: left;  
+}
+.amenities_hair_icon {
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url(/Users/toshi/Holbeton/AirBnB_clone-1/images/hair-straightener.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: left;  
+}
+.reviews {
+    margin-top: 40px;
+    font-size: 16px;
+}
+.places > article > .reviews h2 { 
+    width: 100%;
+    font-size: 16px;
+    text-align: left;
+    border-bottom: solid 1px #DDDDDD;
+}
+.places > article > .reviews h3 { 
+    width: 100%;
+    font-size: 14px;
+    text-align: left;
+}
+.places > article > .reviews p { 
+    width: 100%;
+    font-size: 12px;
+    text-align: left;
+}
+.places > article > .reviews ul {
+    padding: 0 auto;
+    font-size: 12px;
+    list-style-type: none;
+    text-align: left;
+    padding-left: 0;
+}
 @-ms-viewport{
     width: device-width;
-  }
+}
